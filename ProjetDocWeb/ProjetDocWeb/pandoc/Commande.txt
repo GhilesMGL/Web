@@ -1,0 +1,23 @@
+    Convertir MD en HTML avec Pandoc:
+
+pandoc -f commonmark -t  ProjetDocWeb/MarkDown/index.md  -o ProjetDocWeb/HTML/index.html    
+pandoc -f commonmark -t  ProjetDocWeb/MarkDown/fichier1.md  -o ProjetDocWeb/HTML/fichier1.html    
+pandoc -f commonmark -t  ProjetDocWeb/MarkDown/fichier2.md  -o ProjetDocWeb/HTML/fichier2.html    
+pandoc -f commonmark -t  ProjetDocWeb/MarkDown/fichier3.md  -o ProjetDocWeb/HTML/fichier3.html
+pandoc -f commonmark -t  ProjetDocWeb/MarkDown/fichier4.md  -o ProjetDocWeb/HTML/fichier4.html    
+pandoc -f commonmark -t  ProjetDocWeb/MarkDown/fichier5.md  -o ProjetDocWeb/HTML/fichier5.html    
+pandoc -f commonmark -t  ProjetDocWeb/MarkDown/fichier6.md  -o ProjetDocWeb/HTML/fichier6.html    
+
+
+
+    Convertir MD en HTML avec Pandoc et lui associer une feuille du BellaghmaBennabi :
+ 
+ 
+ 
+pandoc -f commonmark -t html -s --template ProjetDocWeb/HTML/template.html --metadata pagetitle="Accueil" --metadata css=" ProjetDocWeb/CSS/BellaghmaBennabi.css"  ProjetDocWeb/MarkDown/index.md  -o ProjetDocWeb/HTML/index.html           
+pandoc -f commonmark -t html -s --template ProjetDocWeb/HTML/template.html --metadata pagetitle="À propos " --metadata css=" ProjetDocWeb/CSS/BellaghmaBennabi.css"  ProjetDocWeb/MarkDown/fichier1.md  -o ProjetDocWeb/HTML/fichier1.html
+pandoc -f commonmark -t html -s --template ProjetDocWeb/HTML/template.html --metadata pagetitle="Services" --metadata css=" ProjetDocWeb/CSS/BellaghmaBennabi.css"  ProjetDocWeb/MarkDown/fichier2.md  -o ProjetDocWeb/HTML/fichier2.html    
+pandoc -f commonmark -t html -s --template ProjetDocWeb/HTML/template.html --metadata pagetitle="Contact" --metadata css=" ProjetDocWeb/CSS/BellaghmaBennabi.css"  ProjetDocWeb/MarkDown/fichier3.md  -o ProjetDocWeb/HTML/fichier3.html
+pandoc -f commonmark -t html -s --template ProjetDocWeb/HTML/template.html --metadata pagetitle="Plus" --metadata css=" ProjetDocWeb/CSS/BellaghmaBennabi.css"  ProjetDocWeb/MarkDown/fichier4.md  -o ProjetDocWeb/HTML/fichier4.html
+pandoc -f commonmark -t html -s --template ProjetDocWeb/HTML/template.html --metadata pagetitle="connexion" --metadata css=" ProjetDocWeb/CSS/BellaghmaBennabi.css"  ProjetDocWeb/MarkDown/fichier5.md  -o ProjetDocWeb/HTML/fichier5.html                                                       
+pandoc -f commonmark -t html -s --template ProjetDocWeb/HTML/template.html --metadata pagetitle="Resources" --metadata css=" ProjetDocWeb/CSS/BellaghmaBennabi.css"  ProjetDocWeb/MarkDown/fichier5.md  -o ProjetDocWeb/HTML/fichier6.html                                                       

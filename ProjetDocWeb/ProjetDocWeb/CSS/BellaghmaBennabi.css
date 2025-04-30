@@ -1,0 +1,972 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+* {
+   
+    box-sizing: border-box;
+  }
+
+  :root {
+    --main-color: #10cab7;
+    --secondary-color: #2c4755;
+    --section-padding: 60px;
+    --section-background: white;
+    --main-duration: 0.5s;
+  }
+  html {
+ 
+    height: 100%;
+
+  
+  }
+body{
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+height:100%;
+background-color: #eee;
+}
+/*STYLING header side */
+.container {
+    max-width: 1000%;
+    padding: 0 20px; /* Add some padding to the sides */
+    margin: 0 auto;
+    background-color: #eee;
+    padding: 10px 20px;
+    justify-content: space-between;
+    position: relative;
+    height:100%;
+}
+
+
+.header {
+    justify-content: space-between; /* Align items to the start and end of the container */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px;
+    width: 100%;
+    height: auto; /* Adjust height to auto for responsiveness */
+    background-color: #eee;
+    position: relative;
+}
+
+.header .nav {
+    text-align: center; /* Align links to the center */
+    margin-top: 10px; /* Add some top margin */
+    margin-right: 11px;
+}
+
+.header .nav a {
+    color: rgba(15, 15, 15, 0.959);
+    margin: 0 10px; /* Add margin to create space between links */
+    text-decoration: none;
+    position: relative;
+
+}
+.header .nav a:hover{
+    color: #5f5b5bde;
+}
+.header .nav a:after{
+    content: "";
+    background-color:rgb(132, 150, 231);
+    width:0%;
+   height:3px;
+   position: absolute;
+   left: 0;
+   bottom: -8px;
+   transition: 0.3s;
+
+}
+.header .nav a:hover:after{
+    width: 100%;
+}
+
+.header .display_flex {
+    position: absolute;
+    display: flex;
+    right: 5px;
+    top: 20px;
+}
+/*header .btns ....nkml*/
+.btn_inscrire,
+ .btn_connexion {
+    padding: 7px;
+    border-radius: 3px;
+    border-style: none;
+    margin-right: 10px;
+    margin-top: 5px;
+    transition: color 0.3s ease; 
+}
+
+ .btn_inscrire {
+    background-color: var(--section-background);
+}
+/*for making hover for botns*/
+.btn_inscrire:hover ,
+ .btn_connexion:hover{
+    cursor: pointer;
+}
+ .btn_inscrire:hover {
+    background-color: black;
+    color:white;
+}
+.btn_connexion:hover {
+    background-color: white;
+    color:black;
+}
+/*end hover*/
+
+
+ .btn_connexion {
+    background-color: black;
+    color: white;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    .header .nav {
+        text-align: center; /* Align links to the center */
+        margin-top: 20px; /* Increase top margin */
+    }
+
+    .header .display_flex {
+        position: static; /* Remove absolute positioning */
+        margin-top: 20px; /* Adjust top margin */
+    }
+
+   .btn_inscrire,
+ .btn_connexion {
+        margin-top: 10px; /* Adjust top margin */
+    }
+}
+/*end media header*/
+
+.contenu{
+   position: relative;
+   margin-bottom: 30px;
+}
+.contenu h1{
+ 
+margin-top:40px;
+}
+.contenu h2{
+ 
+    line-height: 3.4rem;
+}
+.contenu .center{
+    text-align: center;
+
+ 
+}
+.contenu .center #p1{
+    margin-top:10px;
+    text-indent: 10px;
+    line-height: 1.8rem;
+    
+  
+}
+
+@keyframes leftslide{
+    from{margin-left:100%;}
+    to{margin-left:0%;}
+}
+
+@keyframes leftslide{
+    from{margin-left:0%;}
+    to{margin-left:100%;}
+}
+
+
+.container .slider{
+    height:250px;
+    margin:auto;
+   
+ 
+    display:grid;
+    place-items:center;
+}
+.slide-track{
+    display:flex;
+    width:calc(250px *8);
+animation: scroll 40s linear infinite;
+}
+.slide-track2{
+    display:flex;
+    width:calc(250px *8);
+animation: scroll2 40s linear infinite; 
+}
+.slide-track:hover{
+    animation-play-state: paused;
+}
+.slide-track2:hover{
+    animation-play-state: paused;
+}
+@keyframes scroll{
+    0%{
+        transform:translateX(0);
+    }100%{
+        transform: translateX(calc(-150px*8));
+    }
+}
+@keyframes scroll2{
+    100%{
+        transform:translateX(100px);
+    }0%{
+        transform: translateX(calc(-150px*8));
+    }
+}
+
+/* slide for begin from left border  jai donner la meme class pour les images en haut et en dessus */
+.slide{
+    height:200px;
+    width:250px;
+    display:flex;
+   padding:15px;
+   perspective: 100px;
+}
+.slider{
+    height:300px;
+}
+.image{
+    width:100%;
+    transition: transform 1s;
+    
+}
+.image:hover{
+    transform: translateZ(20px);
+}
+/*shadow befor and afer*/
+
+.slider::before,
+.slider::after{
+        content:'';
+    background: linear-gradient(to right, rgb(240, 240, 240) 0%,
+    rgba(165, 13, 13, 0) 100%);
+height:100%;
+position: absolute;
+width:15%;
+
+z-index: 2;
+
+}
+.slider::before,
+.slider::after
+{
+    content:'';
+    top:200px;  
+    bottom: -50px; /*hna prblm shadow hadak jay hta ltht essaie le rouge */
+}
+.slider::before,
+.slider2::before
+{
+  left:0;
+       
+    }
+.slider::after,
+.slider2::after{
+    right:0;
+    transform:rotateZ(180deg);
+}
+.contenu .top{
+    margin-top:30px;
+}
+
+/*styleing second_parte *************************************************************/
+
+
+
+.second_parte {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+
+.grid_parte {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin:0px 80px;
+}
+
+.parte {
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-top:90px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.parte h4 {
+    
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    margin-top:20px;
+}
+
+.parte p {
+    margin-bottom: 15px;
+}
+
+.plus_btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.plus_btn:hover {
+    background-color: white;
+    color:black;
+}
+/*pour les auteur */
+#auteurs {
+    
+    background: #0f0f0f; 
+    height: 10%;
+    font-size: larger;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.3s ease;
+    
+}
+#auteurs p{
+margin-right: 30px;
+color:white;
+cursor: pointer;
+
+}
+#auteurs p:hover{
+    color:black;  
+}
+#contenu {
+  
+    height: 75%;
+    overflow: scroll;
+}
+#contenu2 {
+  
+    height: 105%;
+    overflow: scroll;
+   
+}
+/*******************************************styling fichier 2 html ***************************/
+/*debut de primier page(section)*/
+.container_f2 {
+    max-width: 1000%;
+    padding: 0 20px; /* Add some padding to the sides */
+    margin: 0 auto;
+    background-color: #eee;
+    padding: 10px 20px;
+    justify-content: space-between;
+    position: relative;
+    height:100%;
+}
+    
+.container_f2 .section1{
+    margin-top:40px;
+    display:flex;
+    padding: 0px 40px 0px 40px;
+    line-height: 1.8rem;
+  
+ 
+}
+.container_f2 .section1 .flex_f2 {
+    margin-top: 40px;
+    flex: 1;
+    margin-right: 100px;
+}
+.flex_f2 #p_f2{
+    margin-top: 20px;
+}
+
+
+.grid_2titres {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.btn {
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    
+}
+.btn #btn_connexion{
+    margin-bottom: 8px;
+
+}
+
+
+.section1 img  {
+
+    max-width: 90%;
+    height: auto;
+    margin-top: 40px;
+   
+    border-radius: 8px;
+    animation: move 5s linear infinite;
+}
+@keyframes move {
+    
+    0%,100%{
+        transform: translateY(-5%);
+    }50% {
+            transform: translateY(5%);
+    }
+}
+@media screen and (max-width: 768px) {
+    .container_f2 .section1 {
+        flex-direction: column;
+        align-items: center;
+    }
+    img {
+        margin-top: 20px;
+    }
+}
+/*styling section2 page 2 */
+.section2{
+    
+    margin:70px 80px 0px 80px; 
+
+}
+.section2 .mt_page2{
+    margin-top:110px;
+    text-align: center;
+}
+.section2 .mt_page2 .p2{
+   margin-bottom: 10px;
+   line-height: 1.8rem;
+   font-family:monospace
+}
+.section2 h2 +p{
+    margin-top: 18px;
+    color: #818887;
+}
+.section2 .p2::first-letter{
+    line-height: 1.8rem;
+    color: #0f0f0f;
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+.section2 .p2{
+    text-align: center;
+}
+.images_page2_grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin:30px 80px 0px 80px;
+    text-align: center;
+}
+.grid_imgs img{
+    width:90%;
+    height:70%;
+   
+}
+.grid_imgs {
+line-height: 1.8rem;
+}
+.btn2{
+    margin:66px 80px 0px 80px; 
+}
+.btn2 .btn_connexion2,
+.btns .btn_inscrire{
+    background-color: black;
+    color: white;
+    border: none;
+   
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+
+    cursor: pointer;
+    
+    transition: background-color 0.3s ease; 
+
+    padding: 7px;
+    border-radius: 3px;
+    border-style: none;
+    margin-right: 10px;
+    margin-top: 5px;
+    transition: color 0.3s ease;
+}
+.btn2 .btn_connexion2:hover,
+    .btns .btn_inscrire:hover{
+     background-color: white;
+color:black;
+}
+.btn_inscri2{
+    color:white;
+    background: rgb(85, 155, 221);
+    border: none;
+   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+    padding: 7px;
+    border-radius: 3px;
+    border-style: none;
+    margin-right: 10px;
+    margin-top: 5px;
+
+  
+  
+    transition-duration: 0.3s;
+}
+.btn_inscri2:hover,
+.btn_inscri2:focus,
+.btn_inscri2:active{
+    
+box-shadow: 0 0 20px rgba(0,0,0,0.5);
+transform:scale(1.1);
+
+
+}
+/*styling page 3 */
+.section1_p3{
+    margin-top:40px;
+   text-align: center;
+ }
+
+    
+
+.section1_p3 .title{
+    text-align: center;
+}
+
+
+.grid_imgs_page3{
+    margin-top: 40px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+    gap: 20px;
+    justify-content: center;
+}
+.grid_imgs_page3 .side{
+    line-height: 1.8rem;
+}
+.grid_imgs_page3 .side h3::before{
+    content:" ";
+    height:7px;
+    width:2px;
+    color:red;
+}
+.grid_imgs_page3 #center_img{
+    width:96%;
+    height:90%;
+}
+
+.section1_p3 i{
+  
+    font-size: 28px;
+}
+.section1_p3 i:hover{
+    color:#72797c75;
+    cursor: pointer;
+}
+.section1_p3  .side p{
+    color: #0d0d0eb0;;
+}
+/*section2-page3*/
+.flex_section2_page3{
+    display: flex;
+    column-gap: 60px;
+    margin-top: 40px;
+    text-align: center;
+    
+}
+.flex_section2_page3 td ,
+    .flex_section2_page3 th{
+    padding:10px;
+    background-color: white;
+}
+.flex_section2_page3  #max-min-p{
+    color:red;
+    min-width: 900px;
+    max-width: 100px;
+}
+
+/*sec2*/
+.section2_page3{
+    margin-top: 50px;
+text-align: center;
+position: relative;
+}
+.section2_page3 h2{
+ margin:0px 200px;
+
+}
+.section2_page3 p{
+    margin-top: 26px;
+    font-weight: 600;
+    text-transform: capitalize;
+
+    line-height: 1.8rem;
+}
+.section2_page3 .bottom{
+    margin-top: 26px;
+
+}
+.bottom {
+    display: flex;
+    margin-top: 40px;
+    justify-content:space-around;
+}
+ .bottom .right_side{
+border:1px solid black;
+padding:10px;
+gap: 2px;
+background-color: white;
+
+transition: color 0.3s ease;
+}
+.right_side p{
+    max-width: 250px;
+}
+.bottom .right_side:hover,
+.bottom .right_side:focus,
+    .bottom .right_side:active{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 20px rgba(120, 132, 204, 0.5);
+transform:scale(1.1);
+
+}
+
+/*dstyling page3*/
+h1{
+margin-top: 2.5rem;
+
+}
+.center3{
+    line-height: 1.8rem;
+    text-align: center;
+}
+.center .sous_title{
+    margin: 22px 0px;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.center p::first-letter{
+    margin-top: 20px;
+    font-family:monospace;
+        line-height: 1.8rem;
+        color: #0f0f0f;
+        font-weight: 800;
+        font-size: 30px;
+        letter-spacing: 3px;
+}
+.custom-table,
+.custom-table th,
+.custom-table td{
+    border-collapse:separate;
+    border-spacing: 5px;
+    border: 1px solid black; /* Ajoutez la couleur ou le style de bordure souhaité */
+}
+
+
+/*styiling page 4*/
+
+
+  .avantage-container {
+    position: relative;
+    width: 100%;
+    align-items: center;
+    gap: 30px;
+    padding: 50px;
+    background-color: #f1f1f1;
+}
+
+.avantage-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+}
+
+.avantage-text h1 {
+    margin-left: 15px;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.avantage-text p {
+    font-size: 1rem;
+    max-width: 100%;
+    margin-bottom: 30px;
+ 
+}
+
+.avantage-text .boxes {
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 20px;
+}
+
+.avantage-text .box {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+
+}
+.avantage-text .box:hover{
+    border:1px solid black;
+}
+
+.avantage-text .box img {
+    width: 30px;
+    height: 30px;
+}
+
+.flex {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+}
+
+.flex img {
+    width: 40%; 
+    height: auto; 
+}
+
+.flex p{line-height: 2.2rem;}
+
+
+/* Pour les écrans de taille moyenne */
+@media screen and (min-width: 768px) {
+    .avantage-text .boxes {
+        flex-direction: row; 
+    }
+
+    .flex {
+        flex-direction: row; 
+    }
+}
+
+/* Pour les grands écrans (ordinateurs de bureau) */
+@media screen and (min-width: 1024px) {
+    .avantage-text {
+        flex-direction: row; }
+}
+
+
+/*styling contact page */
+
+.newsletter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top:60px;
+    line-height: 2rem;
+    
+  }
+  
+  .newsletter-text {
+
+    flex-basis: 50%;
+    padding: 20px;
+  }
+  .newsletter-text  p{
+  margin-top: 10px;
+  }
+  
+  .email {
+    margin-top: 20px;
+  }
+  
+  .email input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+  }
+  
+  .btn_inscrire {
+    margin-top:20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  
+  }
+  
+  .newsletter-image {
+    flex-basis: 50%;
+  }
+  
+  .newsletter-image img {
+    max-width: 80%;
+    height: auto;
+  }
+  
+
+
+
+  .newsletter-container {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .newsletter-text {
+    flex: 1;
+  }
+  
+  .newsletter-image {
+    flex: 1;
+    text-align:right;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .newsletter-container {
+      flex-direction: column;
+    }
+  
+    .newsletter-image {
+      text-align: center; /* Centrer l'image sur les écrans plus petits */
+    }
+  }
+  
+  /*fin styling*/
+
+.faq{
+    padding:15px;
+    margin:0px 10px;
+}
+  .faq  p{
+    margin:20px 0px;
+  }
+  .line_btm {
+    line-height: 1.8rem;
+   
+  }
+  .line_btm .line{
+    border-top:  1px solid black;
+    padding-top: 10px;
+ 
+
+  }
+  /*styling fichier 5*/
+  .end {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(rgb(125, 125, 211),rgb(59, 59, 204),blue,rgb(98, 98, 211));
+  
+}
+.end h1{
+      color: white;
+    font-size: 50px;
+}
+#contenu_contact{
+    margin:0px 50px;
+}
+
+  
+.lien1,
+.lien{
+    margin-top:40px;
+    line-height: 2rem;
+    font-weight: 500;
+    font-size: 20px;
+    
+
+   
+}
+.lien1 a{
+display: block;
+}
+.lien1 a,
+.lien a{
+    text-decoration: none;
+    color: #0f0f0f;   
+}
+.lien1 a:hover,
+.lien a:hover
+{
+    color: red;
+    cursor: pointer;
+    
+}
+.lien a{
+    display: flex;
+}
+
+.f6 p{
+    margin-top: 20px;
+}
+.f6 p,
+.f6 h1{
+    text-align: center;
+}
+
+
+.lien {
+    text-align:center ;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.grid-container {
+    margin-top:30px;
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: 10px; 
+}
+
+.grid-container li {
+    width: 80%;
+}
+
+.grid-container li a {
+    display: block;
+}
+
+.grid-container li img {
+    max-width: 20%;
+    height: auto;
+}
+
+
+
+
+
